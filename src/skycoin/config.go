@@ -184,7 +184,7 @@ func NewNodeConfig(mode string, node NodeParameters) *NodeConfig {
 		// MaxOutgoingConnections is the maximum outgoing connections allowed.
 		MaxOutgoingConnections: 8,
 		// MaxDefaultOutgoingConnections is the maximum default outgoing connections allowed.
-		MaxDefaultPeerOutgoingConnections: 1,
+		MaxDefaultPeerOutgoingConnections: 8,
 		DownloadPeerList:                  true,
 		PeerListURL:                       node.PeerListURL,
 		// How often to make outgoing connections, in seconds
