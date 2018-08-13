@@ -1,24 +1,14 @@
-![skycoin logo](https://user-images.githubusercontent.com/26845312/32426705-d95cb988-c281-11e7-9463-a3fce8076a72.png)
 
-# Skycoin
 
-[![Build Status](https://travis-ci.org/skycoin/skycoin.svg)](https://travis-ci.org/skycoin/skycoin)
-[![GoDoc](https://godoc.org/github.com/skycoin/skycoin?status.svg)](https://godoc.org/github.com/skycoin/skycoin)
-[![Go Report Card](https://goreportcard.com/badge/github.com/skycoin/skycoin)](https://goreportcard.com/report/github.com/skycoin/skycoin)
+DistributedBlocks is a next-generation cryptocurrency.
 
-Skycoin is a next-generation cryptocurrency.
+DistributedBlocks improves on Bitcoin in too many ways to be addressed here.
 
-Skycoin improves on Bitcoin in too many ways to be addressed here.
-
-Skycoin is a small part of OP Redecentralize and OP Darknet Plan.
+DistributedBlocks is a small part of OP Redecentralize and OP Darknet Plan.
 
 ## Links
 
-* [skycoin.net](https://www.skycoin.net)
-* [Skycoin Blog](https://www.skycoin.net/blog)
-* [Skycoin Docs](https://www.skycoin.net/docs)
-* [Skycoin Blockchain Explorer](https://explorer.skycoin.net)
-* [Skycoin Development Telegram Channel](https://t.me/skycoindev)
+* [distributedblocks.com](https://www.DistributedBlocks.com)
 
 ## Table of Contents
 
@@ -27,17 +17,17 @@ Skycoin is a small part of OP Redecentralize and OP Darknet Plan.
 - [Changelog](#changelog)
 - [Installation](#installation)
     - [Go 1.10+ Installation and Setup](#go-110-installation-and-setup)
-    - [Go get skycoin](#go-get-skycoin)
-    - [Run Skycoin from the command line](#run-skycoin-from-the-command-line)
-    - [Show Skycoin node options](#show-skycoin-node-options)
-    - [Run Skycoin with options](#run-skycoin-with-options)
+    - [Go get DistributedBlocks](#go-get-DistributedBlocks)
+    - [Run DistributedBlocks from the command line](#run-DistributedBlocks-from-the-command-line)
+    - [Show DistributedBlocks node options](#show-DistributedBlocks-node-options)
+    - [Run DistributedBlocks with options](#run-DistributedBlocks-with-options)
     - [Docker image](#docker-image)
     - [Building your own images](#building-your-own-images)
 - [API Documentation](#api-documentation)
     - [REST API](#rest-api)
     - [JSON-RPC 2.0 API](#json-rpc-20-api)
-    - [Skycoin command line interface](#skycoin-command-line-interface)
-- [Integrating Skycoin with your application](#integrating-skycoin-with-your-application)
+    - [DistributedBlocks command line interface](#DistributedBlocks-command-line-interface)
+- [Integrating DistributedBlocks with your application](#integrating-DistributedBlocks-with-your-application)
 - [Contributing a node to the network](#contributing-a-node-to-the-network)
 - [URI Specification](#uri-specification)
 - [Development](#development)
@@ -66,62 +56,62 @@ Skycoin is a small part of OP Redecentralize and OP Darknet Plan.
 
 ## Installation
 
-Skycoin supports go1.10+.
+DistributedBlocks supports go1.10+.
 
 ### Go 1.10+ Installation and Setup
 
 [Golang 1.10+ Installation/Setup](./INSTALLATION.md)
 
-### Go get skycoin
+### Go get DistributedBlocks
 
 ```sh
-go get github.com/skycoin/skycoin/...
+go get github.com/distributedblocks/DistributedBlocks_24.0/...
 ```
 
-This will download `github.com/skycoin/skycoin` to `$GOPATH/src/github.com/skycoin/skycoin`.
+This will download `github.com/DistributedBlocks/DistributedBlocks_24.0` to `$GOPATH/src/github.com/DistributedBlocks/DistributedBlocks_24.0`.
 
-You can also clone the repo directly with `git clone https://github.com/skycoin/skycoin`,
-but it must be cloned to this path: `$GOPATH/src/github.com/skycoin/skycoin`.
+You can also clone the repo directly with `git clone https://github.com/DistributedBlocks/DistributedBlocks_24.0`,
+but it must be cloned to this path: `$GOPATH/src/github.com/DistributedBlocks/DistributedBlocks`.
 
-### Run Skycoin from the command line
+### Run DistributedBlocks from the command line
 
 ```sh
-cd $GOPATH/src/github.com/skycoin/skycoin
+cd $GOPATH/src/github.com/DistributedBlocks/DistributedBlocks_24.0
 make run
 ```
 
-### Show Skycoin node options
+### Show DistributedBlocks node options
 
 ```sh
-cd $GOPATH/src/github.com/skycoin/skycoin
+cd $GOPATH/src/github.com/DistributedBlocks/DistributedBlocks_24.0
 make run-help
 ```
 
-### Run Skycoin with options
+### Run DistributedBlocks with options
 
 Example:
 
 ```sh
-cd $GOPATH/src/github.com/skycoin/skycoin
+cd $GOPATH/src/github.com/DistributedBlocks/DistributedBlocks_24.0
 make ARGS="--launch-browser=false -data-dir=/custom/path" run
 ```
 
 ### Docker image
 
-This is the quickest way to start using Skycoin using Docker.
+This is the quickest way to start using DistributedBlocks using Docker.
 
 ```sh
-$ docker volume create skycoin-data
-$ docker volume create skycoin-wallet
+$ docker volume create DistributedBlocks-data
+$ docker volume create DistributedBlocks-wallet
 $ docker run -ti --rm \
-    -v skycoin-data:/data/.skycoin \
-    -v skycoin-wallet:/wallet \
+    -v DistributedBlocks-data:/data/.DistributedBlocks \
+    -v DistributedBlocks-wallet:/wallet \
     -p 6000:6000 \
     -p 6420:6420 \
-    skycoin/skycoin
+    DistributedBlocks/DistributedBlocks
 ```
 
-This image has a `skycoin` user for the skycoin daemon to run, with UID and GID 10000.
+This image has a `DistributedBlocks` user for the DistributedBlocks daemon to run, with UID and GID 10000.
 When you mount the volumes, the container will change their owner, so you
 must be aware that if you are mounting an existing host folder any content you
 have there will be own by 10000.
@@ -131,7 +121,7 @@ by just appending flags at the end of the `docker run` command. The following
 example will show you the available options.
 
 ```sh
-docker run --rm skycoin/skycoin -help
+docker run --rm DistributedBlocks/DistributedBlocks -help
 ```
 
 Access the dashboard: [http://localhost:6420](http://localhost:6420).
@@ -144,8 +134,8 @@ Access the API: [http://localhost:6420/version](http://localhost:6420/version).
 
 ### Development image
 
-The [skycoin/skycoindev-cli docker image](docker/images/dev-cli/README.md) is provided in order to make
-easy to start developing Skycoin. It comes with the compiler, linters, debugger
+The [DistributedBlocks/DistributedBlocksdev-cli docker image](docker/images/dev-cli/README.md) is provided in order to make
+easy to start developing DistributedBlocks. It comes with the compiler, linters, debugger
 and the vim editor among other tools.
 
 ## API Documentation
@@ -160,33 +150,33 @@ and the vim editor among other tools.
 
 [JSON-RPC 2.0 README](src/api/webrpc/README.md).
 
-### Skycoin command line interface
+### DistributedBlocks command line interface
 
 [CLI command API](cmd/cli/README.md).
 
-## Integrating Skycoin with your application
+## Integrating DistributedBlocks with your application
 
-[Skycoin Integration Documentation](INTEGRATION.md)
+[DistributedBlocks Integration Documentation](INTEGRATION.md)
 
 ## Contributing a node to the network
 
 Add your node's `ip:port` to the [peers.txt](peers.txt) file.
-This file will be periodically uploaded to https://downloads.skycoin.net/blockchain/peers.txt
+This file will be periodically uploaded to https://distributedBlocks.com/peers.txt
 and used to seed client with peers.
 
 *Note*: Do not add Skywire nodes to `peers.txt`.
-Only add Skycoin nodes with high uptime and a static IP address (such as a Skycoin node hosted on a VPS).
+Only add DistributedBlocks nodes with high uptime and a static IP address (such as a DistributedBlocks node hosted on a VPS).
 
 ## URI Specification
 
-Skycoin URIs obey the same rules as specified in Bitcoin's [BIP21](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki).
+DistributedBlocks URIs obey the same rules as specified in Bitcoin's [BIP21](https://github.com/bitcoin/bips/blob/master/bip-0021.mediawiki).
 They use the same fields, except with the addition of an optional `hours` parameter, specifying the coin hours.
 
-Example Skycoin URIs:
+Example DistributedBlocks URIs:
 
-* `skycoin:2hYbwYudg34AjkJJCRVRcMeqSWHUixjkfwY`
-* `skycoin:2hYbwYudg34AjkJJCRVRcMeqSWHUixjkfwY?amount=123.456&hours=70`
-* `skycoin:2hYbwYudg34AjkJJCRVRcMeqSWHUixjkfwY?amount=123.456&hours=70&label=friend&message=Birthday%20Gift`
+* `DistributedBlocks:2hYbwYudg34AjkJJCRVRcMeqSWHUixjkfwY`
+* `DistributedBlocks:2hYbwYudg34AjkJJCRVRcMeqSWHUixjkfwY?amount=123.456&hours=70`
+* `DistributedBlocks:2hYbwYudg34AjkJJCRVRcMeqSWHUixjkfwY?amount=123.456&hours=70&label=friend&message=Birthday%20Gift`
 
 ## Development
 
@@ -213,10 +203,10 @@ We have two branches: `master` and `develop`.
 
 ### Client libraries
 
-Skycoin implements client libraries which export core functionality for usage from
+DistributedBlocks implements client libraries which export core functionality for usage from
 other programming languages.
 
-* `lib/cgo/` - libskycoin C client library ( [overview](lib/cgo/README.md), [API reference](docs/libc/API.md) )
+* `lib/cgo/` - libDistributedBlocks C client library ( [overview](lib/cgo/README.md), [API reference](docs/libc/API.md) )
 
 For further details run `make docs` to generate documetation and read the corresponding README and API references.
 
@@ -231,7 +221,7 @@ make test
 There are integration tests for the CLI and HTTP API interfaces. They have two
 run modes, "stable" and "live.
 
-The stable integration tests will use a skycoin daemon
+The stable integration tests will use a DistributedBlocks daemon
 whose blockchain is synced to a specific point and has networking disabled so that the internal
 state does not change.
 
@@ -255,15 +245,15 @@ The `-v` option, show verbose logs.
 
 #### Live Integration Tests
 
-The live integration tests run against a live runnning skycoin node, so before running the test, we
-need to start a skycoin node. Since the `cli` integration test requires the rpc interface enabled,
+The live integration tests run against a live runnning DistributedBlocks node, so before running the test, we
+need to start a DistributedBlocks node. Since the `cli` integration test requires the rpc interface enabled,
 we should start node with `rpc-interface`:
 
 ```sh
 ./run.sh -launch-browser=false -rpc-interface
 ```
 
-After the skycoin node is up, run the following command to start the live tests:
+After the DistributedBlocks node is up, run the following command to start the live tests:
 
 ```sh
 ./ci-scripts/integration-test.live.sh -v
@@ -282,7 +272,7 @@ configured wallet directory, which can be controlled with `-wallet-dir` when run
 If the wallet is encrypted, also set `WALLET_PASSWORD`.
 
 ```sh
-export WALLET_DIR="$HOME/.skycoin/wallets"
+export WALLET_DIR="$HOME/.DistributedBlocks/wallets"
 export WALLET_NAME="$valid_wallet_filename"
 export WALLET_PASSWORD="$wallet_password"
 ```
@@ -392,7 +382,7 @@ dep ensure github.com/foo/bar@tag
 ```
 
 ### Configuration Modes
-There are 4 configuration modes in which you can run a skycoin node:
+There are 4 configuration modes in which you can run a DistributedBlocks node:
 - Development Desktop Daemon
 - Server Daemon
 - Electron Desktop Client
@@ -405,10 +395,10 @@ $ ./run.sh
 ```
 
 #### Server Daemon Mode
-The default settings for a skycoin node are chosen for `Server Daemon`, which is typically run from source.
+The default settings for a DistributedBlocks node are chosen for `Server Daemon`, which is typically run from source.
 This mode is usually preferred to be run with security options, though `-disable-csrf` is normal for server daemon mode, it is left enabled by default.
 ```bash
-$ go run cmd/skycoin/skycoin.go
+$ go run cmd/DistributedBlocks/DistributedBlocks.go
 ```
 
 #### Electron Desktop Client Mode
@@ -416,7 +406,7 @@ This mode configures itself via electron-main.js
 
 #### Standalone Desktop Client Mode
 This mode is configured by compiling with `STANDALONE_CLIENT` build tag.
-The configuration is handled in `cmd/skycoin/skycoin.go`
+The configuration is handled in `cmd/DistributedBlocks/DistributedBlocks.go`
 
 ### Wallet GUI Development
 
@@ -474,7 +464,7 @@ The fingerprint for this key is:
 ```
 pub   ed25519 2017-09-01 [SC] [expires: 2023-03-18]
       10A7 22B7 6F2F FE7B D238  0222 5801 631B D27C 7874
-uid                      GZ-C SKYCOIN <token@protonmail.com>
+uid                      GZ-C DistributedBlocks <token@protonmail.com>
 sub   cv25519 2017-09-01 [E] [expires: 2023-03-18]
 ```
 
@@ -484,7 +474,7 @@ Follow the [Tor Project's instructions for verifying signatures](https://www.tor
 
 If you can't or don't want to import the keys from a keyserver, the signing key is available in the repo: [gz-c.asc](gz-c.asc).
 
-Releases and their signatures can be found on the [releases page](https://github.com/skycoin/skycoin/releases).
+Releases and their signatures can be found on the [releases page](https://github.com/DistributedBlocks/DistributedBlocks/releases).
 
 Instructions for generating a PGP key, publishing it, signing the tags and binaries:
 https://gist.github.com/gz-c/de3f9c43343b2f1a27c640fe529b067c

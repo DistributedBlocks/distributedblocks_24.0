@@ -1,8 +1,8 @@
 # REST API Documentation
 
-API default service port is `6420`.  However, if running the desktop or standalone releases from the website, the port is randomized by default.
+API default service port is `9620`.  However, if running the desktop or standalone releases from the website, the port is randomized by default.
 
-A REST API implemented in Go is available, see [Skycoin REST API Client Godoc](https://godoc.org/github.com/skycoin/skycoin/src/api#Client).
+A REST API implemented in Go is available, see [DISTcoin REST API Client Godoc](https://godoc.org/github.com/DISTcoin/DISTcoin/src/api#Client).
 
 The API has two versions, `/api/v1` and `/api/v2`.
 Previously, there was no `/api/vx` prefix.
@@ -133,7 +133,7 @@ Method: GET
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/csrf
+curl http://127.0.0.1:9620/api/v1/csrf
 ```
 
 Result:
@@ -156,7 +156,7 @@ Method: GET
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/health
+curl http://127.0.0.1:9620/api/v1/health
 ```
 
 Response:
@@ -199,7 +199,7 @@ Method: GET
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/version
+curl http://127.0.0.1:9620/api/v1/version
 ```
 
 Result:
@@ -223,7 +223,7 @@ Args:
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/balance\?addrs\=7cpQ7t3PZZXvjTst8G7Uvs7XH4LeM8fBPD,nu7eSpT6hr5P21uzw7bnbxm83B6ywSjHdq
+curl http://127.0.0.1:9620/api/v1/balance\?addrs\=7cpQ7t3PZZXvjTst8G7Uvs7XH4LeM8fBPD,nu7eSpT6hr5P21uzw7bnbxm83B6ywSjHdq
 ```
 
 Result:
@@ -278,13 +278,13 @@ Addrs and hashes cannot be combined.
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/outputs?addrs=6dkVxyKFbFKg9Vdg6HPg1UANLByYRqkrdY
+curl http://127.0.0.1:9620/api/v1/outputs?addrs=6dkVxyKFbFKg9Vdg6HPg1UANLByYRqkrdY
 ```
 
 or
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/outputs?hashes=7669ff7350d2c70a88093431a7b30d3e69dda2319dcb048aa80fa0d19e12ebe0
+curl http://127.0.0.1:9620/api/v1/outputs?hashes=7669ff7350d2c70a88093431a7b30d3e69dda2319dcb048aa80fa0d19e12ebe0
 ```
 
 Result:
@@ -317,7 +317,7 @@ Content-Type: application/json
 Args: {"address": "<address>"}
 ```
 
-Parses and validates a Skycoin address. Returns the address version in the response.
+Parses and validates a DISTcoin address. Returns the address version in the response.
 
 Error responses:
 
@@ -327,7 +327,7 @@ Error responses:
 Example for a valid address:
 
 ```sh
-curl -X POST http://127.0.0.1:6420/api/v2/address/verify \
+curl -X POST http://127.0.0.1:9620/api/v2/address/verify \
  -H 'Content-Type: application/json' \
  -d '{"address":"2HTnQe3ZupkG6k8S81brNC3JycGV2Em71F2"}'
 ```
@@ -345,7 +345,7 @@ Result:
 Example for an invalid address:
 
 ```sh
-curl -X POST http://127.0.0.1:6420/api/v2/address/verify \
+curl -X POST http://127.0.0.1:9620/api/v2/address/verify \
  -H 'Content-Type: application/json' \
  -d '{"address":"2aTnQe3ZupkG6k8S81brNC3JycGV2Em71F2"}'
 ```
@@ -375,7 +375,7 @@ Args:
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/wallet?id=2017_11_25_e5fb.wlt
+curl http://127.0.0.1:9620/api/v1/wallet?id=2017_11_25_e5fb.wlt
 ```
 
 Result:
@@ -383,7 +383,7 @@ Result:
 ```json
 {
     "meta": {
-        "coin": "skycoin",
+        "coin": "DISTcoin",
         "filename": "2017_11_25_e5fb.wlt",
         "label": "test",
         "type": "deterministic",
@@ -419,7 +419,7 @@ Returns all pending transaction for all addresses by selected Wallet
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/wallet/transactions?id=2017_11_25_e5fb.wlt
+curl http://127.0.0.1:9620/api/v1/wallet/transactions?id=2017_11_25_e5fb.wlt
 ```
 
 Result:
@@ -475,7 +475,7 @@ Method: GET
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/wallets
+curl http://127.0.0.1:9620/api/v1/wallets
 ```
 
 Result:
@@ -484,7 +484,7 @@ Result:
 [
     {
         "meta": {
-            "coin": "skycoin",
+            "coin": "DISTcoin",
             "filename": "2017_11_25_e5fb.wlt",
             "label": "test",
             "type": "deterministic",
@@ -517,14 +517,14 @@ Method: GET
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/wallets/folderName
+curl http://127.0.0.1:9620/api/v1/wallets/folderName
 ```
 
 Result:
 
 ```json
 {
-    "address": "/Users/user/.skycoin/wallets"
+    "address": "/Users/user/.DISTcoin/wallets"
 }
 ```
 
@@ -542,7 +542,7 @@ Args:
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/wallet/newSeed
+curl http://127.0.0.1:9620/api/v1/wallet/newSeed
 ```
 
 Result:
@@ -569,7 +569,7 @@ Args:
 Example:
 
 ```sh
-curl -X POST http://127.0.0.1:6420/api/v1/wallet/create \
+curl -X POST http://127.0.0.1:9620/api/v1/wallet/create \
  -H 'Content-Type: application/x-www-form-urlencoded' \
  -d 'seed=$seed' \
  -d 'label=$label' \
@@ -582,7 +582,7 @@ Result:
 ```json
 {
     "meta": {
-        "coin": "skycoin",
+        "coin": "DISTcoin",
         "filename": "2017_05_09_d554.wlt",
         "label": "test",
         "type": "deterministic",
@@ -614,7 +614,7 @@ Args:
 Example:
 
 ```sh
-curl -X POST http://127.0.0.1:6420/api/v1/wallet/newAddress \
+curl -X POST http://127.0.0.1:9620/api/v1/wallet/newAddress \
  -H 'Content-Type: x-www-form-urlencoded' \
  -d 'id=2017_05_09_d554.wlt' \
  -d 'num=2' \
@@ -644,7 +644,7 @@ Args:
 Example:
 
 ```sh
-curl -X POST http://127.0.0.1:6420/api/v1/wallet/update \
+curl -X POST http://127.0.0.1:9620/api/v1/wallet/update \
  -H 'Content-Type: application/x-www-form-urlencoded' \
  -d 'id=$id' \
  -d 'label=$label'
@@ -668,7 +668,7 @@ Args:
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/wallet/balance?id=2018_03_07_3088.wlt
+curl http://127.0.0.1:9620/api/v1/wallet/balance?id=2018_03_07_3088.wlt
 ```
 
 Result:
@@ -768,7 +768,7 @@ Statuses:
 Example, send 1 coin to `2iVtHS5ye99Km5PonsB42No3pQRGEURmxyc` from wallet `2017_05_09_ea42.wlt`:
 
 ```sh
-curl -X POST  http://127.0.0.1:6420/api/v1/wallet/spend \
+curl -X POST  http://127.0.0.1:9620/api/v1/wallet/spend \
   -H 'Content-Type: application/x-www-form-urlencoded' \
   -d 'id=2017_05_09_ea42.wlt' \
   -d 'dst=2iVtHS5ye99Km5PonsB42No3pQRGEURmxyc' \
@@ -1014,7 +1014,7 @@ but not return an error.
 Example:
 
 ```sh
-curl -X POST http://127.0.0.1:6420/api/v1/wallet/transaction -H 'content-type: application/json' -d '{
+curl -X POST http://127.0.0.1:9620/api/v1/wallet/transaction -H 'content-type: application/json' -d '{
     "hours_selection": {
         "type": "auto",
         "mode": "share",
@@ -1080,7 +1080,7 @@ Result:
             }
         ]
     },
-    "encoded_transaction": "010100000097dd062820314c46da0fc18c8c6c10bfab1d5da80c30adc79bbe72e90bfab11d010000006120acebfa61ba4d3970dec5665c3c952374f5d9bbf327674a0b240de62b202b319f61182e2a262b2ca5ef5a592084299504689db5448cd64c04b1f26eb01d9100010000007068bfd0f0f914ea3682d0e5cb3231b75cb9f0776bf9013d79b998d96c93ce2b0300000000ba2a4ac4a5ce4e03a82d2240ae3661419f7081b140420f0000000000ed5600000000000000ba2a4ac4a5ce4e03a82d2240ae3661419f7081b1302d8900000000006e0d0300000000000083874350e65e84aa6e06192408951d7aaac7809e10270000000000005c64030000000000"
+    "encoded_transaction": "010100000097dd062820314c46da0fc18c8c6c10bfab1d5da80c30adc79bbe72e90bfab11d010000006120acebfa61ba4d3970dec5665c3c952374f5d9bbf327674a0b240de62b202b319f61182e2a262b2ca5ef5a592084299504689db5448cd64c04b1f26eb01d9100010000007068bfd0f0f914ea3682d0e5cb3231b75cb9f0776bf9013d79b998d96c93ce2b0300000000ba2a4ac4a5ce4e03a82d2240ae3661419f7081b140420f0000000000ed5960000000000000ba2a4ac4a5ce4e03a82d2240ae3661419f7081b1302d8900000000006e0d0300000000000083874350e65e84aa6e06192408951d7aaac7809e10270000000000005c64030000000000"
 }
 ```
 
@@ -1096,7 +1096,7 @@ Args:
 Example:
 
 ```sh
-curl -X POST http://127.0.0.1:6420/api/v1/wallet/unload \
+curl -X POST http://127.0.0.1:9620/api/v1/wallet/unload \
  -H 'Content-Type: x-www-form-urlencoded' \
  -d 'id=2017_05_09_d554.wlt'
 ```
@@ -1114,7 +1114,7 @@ Args:
 Example:
 
 ```sh
-curl -X POST http://127.0.0.1:6420/api/v1/wallet/encrypt \
+curl -X POST http://127.0.0.1:9620/api/v1/wallet/encrypt \
  -H 'Content-Type: application/x-www-form-urlencoded' \
  -d 'id=test.wlt' \
  -d 'password=$password'
@@ -1125,7 +1125,7 @@ Result:
 ```json
 {
     "meta": {
-        "coin": "skycoin",
+        "coin": "DISTcoin",
         "filename": "test.wlt",
         "label": "test",
         "type": "deterministic",
@@ -1156,7 +1156,7 @@ Args:
 Example:
 
 ```sh
-curl -X POST http://127.0.0.1:6420/api/v1/wallet/decrypt \
+curl -X POST http://127.0.0.1:9620/api/v1/wallet/decrypt \
  -H 'Content-Type: application/x-www-form-urlencoded' \
  -d 'id=test.wlt' \
  -d 'password=$password'
@@ -1167,7 +1167,7 @@ Result:
 ```json
 {
     "meta": {
-        "coin": "skycoin",
+        "coin": "DISTcoin",
         "filename": "test.wlt",
         "label": "test",
         "type": "deterministic",
@@ -1200,7 +1200,7 @@ Args:
 Example:
 
 ```sh
-curl -X POST http://127.0.0.1:6420/api/v1/wallet/seed \
+curl -X POST http://127.0.0.1:9620/api/v1/wallet/seed \
  -H 'Content-type: application/x-www-form-urlencoded' \
  -d 'id=test.wlt' \
  -d 'password=$password'
@@ -1226,7 +1226,7 @@ Method: GET
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/pendingTxs
+curl http://127.0.0.1:9620/api/v1/pendingTxs
 ```
 
 Result:
@@ -1282,7 +1282,7 @@ Args:
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/transaction?txid=a6446654829a4a844add9f181949d12f8291fdd2c0fcb22200361e90e814e2d3
+curl http://127.0.0.1:9620/api/v1/transaction?txid=a6446654829a4a844add9f181949d12f8291fdd2c0fcb22200361e90e814e2d3
 ```
 
 Result:
@@ -1330,7 +1330,7 @@ Method: GET
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/rawtx?txid=a6446654829a4a844add9f181949d12f8291fdd2c0fcb22200361e90e814e2d3
+curl http://127.0.0.1:9620/api/v1/rawtx?txid=a6446654829a4a844add9f181949d12f8291fdd2c0fcb22200361e90e814e2d3
 ```
 
 Result:
@@ -1358,7 +1358,7 @@ This can happen if the node's network has recently become unavailable but its co
 Example:
 
 ```sh
-curl -X POST http://127.0.0.1:6420/api/v1/injectTransaction -H 'content-type: application/json' -d '{
+curl -X POST http://127.0.0.1:9620/api/v1/injectTransaction -H 'content-type: application/json' -d '{
     "rawtx":"dc0000000008b507528697b11340f5a3fcccbff031c487bad59d26c2bdaea0cd8a0199a1720100000017f36c9d8bce784df96a2d6848f1b7a8f5c890986846b7c53489eb310090b91143c98fd233830055b5959f60030b3ca08d95f22f6b96ba8c20e548d62b342b5e0001000000ec9cf2f6052bab24ec57847c72cfb377c06958a9e04a077d07b6dd5bf23ec106020000000072116096fe2207d857d18565e848b403807cd825c044840300000000330100000000000000575e472f8c5295e8fa644e9bc5e06ec10351c65f40420f000000000066020000000000000"
 }'
 ```
@@ -1382,18 +1382,18 @@ Args:
 To get address related confirmed transactions:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/transactions?addrs=7cpQ7t3PZZXvjTst8G7Uvs7XH4LeM8fBPD,6dkVxyKFbFKg9Vdg6HPg1UANLByYRqkrdY&confirmed=1
+curl http://127.0.0.1:9620/api/v1/transactions?addrs=7cpQ7t3PZZXvjTst8G7Uvs7XH4LeM8fBPD,6dkVxyKFbFKg9Vdg6HPg1UANLByYRqkrdY&confirmed=1
 ```
 
 To get address related unconfirmed transactions:
 ```sh
-curl http://127.0.0.1:6420/api/v1/transactions?addrs=7cpQ7t3PZZXvjTst8G7Uvs7XH4LeM8fBPD,6dkVxyKFbFKg9Vdg6HPg1UANLByYRqkrdY&confirmed=0
+curl http://127.0.0.1:9620/api/v1/transactions?addrs=7cpQ7t3PZZXvjTst8G7Uvs7XH4LeM8fBPD,6dkVxyKFbFKg9Vdg6HPg1UANLByYRqkrdY&confirmed=0
 ```
 
 To get all addresses related transactions:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/transactions?addrs=7cpQ7t3PZZXvjTst8G7Uvs7XH4LeM8fBPD,6dkVxyKFbFKg9Vdg6HPg1UANLByYRqkrdY
+curl http://127.0.0.1:9620/api/v1/transactions?addrs=7cpQ7t3PZZXvjTst8G7Uvs7XH4LeM8fBPD,6dkVxyKFbFKg9Vdg6HPg1UANLByYRqkrdY
 ```
 
 
@@ -1521,7 +1521,7 @@ Method: GET
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/resendUnconfirmedTxns
+curl http://127.0.0.1:9620/api/v1/resendUnconfirmedTxns
 ```
 
 Result:
@@ -1560,7 +1560,7 @@ If the transaction can not be parsed, returns `400 Bad Request` and the `"error"
 Example of valid transaction that has not been spent:
 
 ```sh
-curl -X POST -H 'Content-Type: application/json' http://127.0.0.1:6420/api/v2/transaction/verify \
+curl -X POST -H 'Content-Type: application/json' http://127.0.0.1:9620/api/v2/transaction/verify \
 -d '{"encoded_transaction": "dc000000004fd024d60939fede67065b36adcaaeaf70fc009e3a5bbb8358940ccc8bbb2074010000007635ce932158ec06d94138adc9c9b19113fa4c2279002e6b13dcd0b65e0359f247e8666aa64d7a55378b9cc9983e252f5877a7cb2671c3568ec36579f8df1581000100000019ad5059a7fffc0369fc24b31db7e92e12a4ee2c134fb00d336d7495dec7354d02000000003f0555073e17ea6e45283f0f1115b520d0698d03a086010000000000010000000000000000b90dc595d102c48d3281b47428670210415f585200f22b0000000000ff01000000000000"}'
 ```
 
@@ -1613,7 +1613,7 @@ Result:
 Example of valid transaction that *has* been spent:
 
 ```sh
-curl -X POST -H 'Content-Type: application/json' http://127.0.0.1:6420/api/v2/transaction/verify \
+curl -X POST -H 'Content-Type: application/json' http://127.0.0.1:9620/api/v2/transaction/verify \
 -d '{"encoded_transaction": "dc000000004fd024d60939fede67065b36adcaaeaf70fc009e3a5bbb8358940ccc8bbb2074010000007635ce932158ec06d94138adc9c9b19113fa4c2279002e6b13dcd0b65e0359f247e8666aa64d7a55378b9cc9983e252f5877a7cb2671c3568ec36579f8df1581000100000019ad5059a7fffc0369fc24b31db7e92e12a4ee2c134fb00d336d7495dec7354d02000000003f0555073e17ea6e45283f0f1115b520d0698d03a086010000000000010000000000000000b90dc595d102c48d3281b47428670210415f585200f22b0000000000ff01000000000000"}'
 ```
 
@@ -1680,7 +1680,7 @@ Method: GET
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/blockchain/metadata
+curl http://127.0.0.1:9620/api/v1/blockchain/metadata
 ```
 
 Result:
@@ -1711,7 +1711,7 @@ Method: GET
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/blockchain/progress
+curl http://127.0.0.1:9620/api/v1/blockchain/progress
 ```
 
 Result:
@@ -1722,11 +1722,11 @@ Result:
     "highest": 2760,
     "peers": [
     {
-        "address": "35.157.164.126:6000",
+        "address": "35.157.164.126:9600",
         "height": 2760
     },
     {
-        "address": "63.142.253.76:6000",
+        "address": "63.142.253.76:9600",
         "height": 2760
     },
     ]
@@ -1744,13 +1744,13 @@ Args:
 ```
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/block?hash=6eafd13ab6823223b714246b32c984b56e0043412950faf17defdbb2cbf3fe30
+curl http://127.0.0.1:9620/api/v1/block?hash=6eafd13ab6823223b714246b32c984b56e0043412950faf17defdbb2cbf3fe30
 ```
 
 or
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/block?seq=2760
+curl http://127.0.0.1:9620/api/v1/block?seq=2760
 ```
 
 Result:
@@ -1813,7 +1813,7 @@ Args:
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/blocks?start=1&end=2
+curl http://127.0.0.1:9620/api/v1/blocks?start=1&end=2
 ```
 
 Result:
@@ -1909,7 +1909,7 @@ Args:
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/last_blocks?num=2
+curl http://127.0.0.1:9620/api/v1/last_blocks?num=2
 ```
 
 Result:
@@ -2019,7 +2019,7 @@ Args:
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/explorer/address?address=2NfNKsaGJEndpSajJ6TsKJfsdDjW2gFsjXg
+curl http://127.0.0.1:9620/api/v1/explorer/address?address=2NfNKsaGJEndpSajJ6TsKJfsdDjW2gFsjXg
 ```
 
 Result:
@@ -2079,7 +2079,7 @@ Args:
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/uxout?uxid=8b64d9b058e10472b9457fd2d05a1d89cbbbd78ce1d97b16587d43379271bed1
+curl http://127.0.0.1:9620/api/v1/uxout?uxid=8b64d9b058e10472b9457fd2d05a1d89cbbbd78ce1d97b16587d43379271bed1
 ```
 
 Result:
@@ -2110,7 +2110,7 @@ Args:
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/address_uxouts?address=6dkVxyKFbFKg9Vdg6HPg1UANLByYRqkrdY
+curl http://127.0.0.1:9620/api/v1/address_uxouts?address=6dkVxyKFbFKg9Vdg6HPg1UANLByYRqkrdY
 ```
 
 Result:
@@ -2143,7 +2143,7 @@ Method: GET
 Example:
 
 ```sh
-curl http://127.0.0.1:6420/api/v1/coinSupply
+curl http://127.0.0.1:9620/api/v1/coinSupply
 ```
 
 Result:
@@ -2275,7 +2275,7 @@ Args:
 Example:
 
 ```sh
-curl "http://127.0.0.1:6420/api/v1/richlist?n=4&include-distribution=true"
+curl "http://127.0.0.1:9620/api/v1/richlist?n=4&include-distribution=true"
 ```
 
 Result:
@@ -2317,7 +2317,7 @@ Method: GET
 Example:
 
 ```sh
-curl "http://127.0.0.1:6420/api/v1/addresscount"
+curl "http://127.0.0.1:9620/api/v1/addresscount"
 ```
 
 Result:
@@ -2342,7 +2342,7 @@ Args:
 Example:
 
 ```sh
-curl 'http://127.0.0.1:6420/api/v1/network/connection?addr=176.9.84.75:6000'
+curl 'http://127.0.0.1:9620/api/v1/network/connection?addr=176.9.84.75:9600'
 ```
 
 Result:
@@ -2350,14 +2350,14 @@ Result:
 ```json
 {
     "id": 109548,
-    "address": "176.9.84.75:6000",
+    "address": "176.9.84.75:9600",
     "last_sent": 1520675817,
     "last_received": 1520675817,
     "outgoing": false,
     "introduced": true,
     "mirror": 719118746,
     "height": 181,
-    "listen_port": 6000
+    "listen_port": 9600
 }
 ```
 
@@ -2371,7 +2371,7 @@ Method: GET
 Example:
 
 ```sh
-curl 'http://127.0.0.1:6420/api/v1/network/connections'
+curl 'http://127.0.0.1:9620/api/v1/network/connections'
 ```
 
 Result:
@@ -2392,25 +2392,25 @@ Result:
         },
         {
             "id": 109548,
-            "address": "176.9.84.75:6000",
+            "address": "176.9.84.75:9600",
             "last_sent": 1520675751,
             "last_received": 1520675751,
             "outgoing": false,
             "introduced": true,
             "mirror": 719118746,
             "height": 182,
-            "listen_port": 6000
+            "listen_port": 9600
         },
         {
             "id": 99115,
-            "address": "185.120.34.60:6000",
+            "address": "185.120.34.60:9600",
             "last_sent": 1520675754,
             "last_received": 1520675754,
             "outgoing": false,
             "introduced": true,
             "mirror": 1931713869,
             "height": 180,
-            "listen_port": 6000
+            "listen_port": 9600
         }
     ]
 }
@@ -2427,21 +2427,21 @@ Method: GET
 Example:
 
 ```sh
-curl 'http://127.0.0.1:6420/api/v1/network/defaultConnections'
+curl 'http://127.0.0.1:9620/api/v1/network/defaultConnections'
 ```
 
 Result:
 
 ```json
 [
-    "104.237.142.206:6000",
-    "118.178.135.93:6000",
-    "120.77.69.188:6000",
-    "121.41.103.148:6000",
-    "139.162.7.132:6000",
-    "172.104.85.6:6000",
-    "176.58.126.224:6000",
-    "47.88.33.156:6000"
+    "104.237.142.206:9600",
+    "118.178.135.93:9600",
+    "120.77.69.188:9600",
+    "121.41.103.148:9600",
+    "139.162.7.132:9600",
+    "172.104.85.6:9600",
+    "176.58.126.224:9600",
+    "47.88.33.156:9600"
 ]
 ```
 
@@ -2455,21 +2455,21 @@ Method: GET
 Example:
 
 ```sh
-curl 'http://127.0.0.1:6420/api/v1/network/connections/trust'
+curl 'http://127.0.0.1:9620/api/v1/network/connections/trust'
 ```
 
 Result:
 
 ```json
 [
-    "104.237.142.206:6000",
-    "118.178.135.93:6000",
-    "120.77.69.188:6000",
-    "121.41.103.148:6000",
-    "139.162.7.132:6000",
-    "172.104.85.6:6000",
-    "176.58.126.224:6000",
-    "47.88.33.156:6000"
+    "104.237.142.206:9600",
+    "118.178.135.93:9600",
+    "120.77.69.188:9600",
+    "121.41.103.148:9600",
+    "139.162.7.132:9600",
+    "172.104.85.6:9600",
+    "176.58.126.224:9600",
+    "47.88.33.156:9600"
 ]
 ```
 
@@ -2483,36 +2483,15 @@ Method: GET
 Example:
 
 ```sh
-curl 'http://127.0.0.1:6420/api/v1/network/connections/exchange'
+curl 'http://127.0.0.1:9620/api/v1/network/connections/exchange'
 ```
 
 Result:
 
 ```json
 [
-    "104.237.142.206:6000",
-    "116.62.220.158:7200",
-    "118.237.210.163:6000",
-    "120.77.69.188:6000",
-    "121.41.103.148:6000",
-    "121.41.103.148:7200",
-    "139.162.161.41:20000",
-    "139.162.161.41:20001",
-    "139.162.161.41:20002",
-    "139.162.33.154:6000",
-    "139.162.7.132:6000",
-    "155.94.137.34:6000",
-    "164.132.108.92:6000",
-    "165.227.199.63:6000",
-    "172.104.145.6:6000",
-    "172.104.52.230:7200",
-    "172.104.85.6:6000",
-    "173.212.205.184:6000",
-    "173.249.30.221:6000",
-    "176.58.126.224:6000",
-    "176.9.84.75:6000",
-    "185.120.34.60:6000",
-    "35.201.160.163:6000",
-    "47.88.33.156:6000"
+    "104.237.142.206:9600",
+    "116.62.220.158:9600",
+    
 ]
 ```
